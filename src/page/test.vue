@@ -56,6 +56,7 @@ export default {
   },
   mounted() {
     this.getPanzoomElement();
+    this.getData();
   },
   methods: {
     settext() {
@@ -64,6 +65,10 @@ export default {
         console.log('123')
       }, 1000);
       
+    },
+    getData() {
+      const data = require('@/utils/data.json')
+      console.log('data', data)
     },
     getPanzoomElement () {
       this.panzoom = Panzoom(this.$refs.dom, {

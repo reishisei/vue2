@@ -41,6 +41,7 @@
 </template>
 
 <script>
+import {getData} from '@/api/home'
 import Panzoom from "@panzoom/panzoom"
 export default {
   name: 'HelloWorld',
@@ -56,6 +57,7 @@ export default {
   },
   mounted() {
     this.getPanzoomElement();
+    // this.getData();
   },
   methods: {
     settext() {
@@ -85,6 +87,10 @@ export default {
     zoomOut() {
       this.zoom -= 0.1
       this.panzoom.zoomOut();
+    },
+    async getData() {
+      const res = await getData();
+        console.log('res', res);
     }
   }
 }

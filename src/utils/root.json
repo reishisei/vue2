@@ -1,0 +1,7 @@
+[{
+	"name": "test",
+    "pass": "123456"
+}, {
+	"name": "admin",
+    "pass": "abcd1234"
+}]
