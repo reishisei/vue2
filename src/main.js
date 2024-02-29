@@ -4,10 +4,12 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import router from '/src/router/index'
 import VueCookies from "vue-cookies";
+import VueClipBoard from 'vue-clipboard2';
 
 Vue.config.productionTip = false
 Vue.use(ElementUI);
 Vue.use(VueCookies);
+Vue.use(VueClipBoard);
 
 new Vue({
   router,

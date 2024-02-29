@@ -16,7 +16,6 @@ export default new Router({
       component: Index,   //对应的组件模板
       children: [
         { name: 'list', path: '/list', component: List },
-        { name: 'login', path: '/login', component: login },
         { name: 'detail', path: '/Detail', component: Detail },
       ]
     },
@@ -24,11 +23,6 @@ export default new Router({
       path: '/login',         //链接路径
       name: 'login',     //路由名称，
       component: login
-    },
-    {                    //每一个链接都是一个对象
-      path: '/elm',         //链接路径
-      name: 'elm',     //路由名称，
-      component: elm
     },
   ]
 })
