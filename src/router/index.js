@@ -4,7 +4,11 @@ import Index from '/src/page/index'  //引入根目录下的Hello.vue组件
 import login from '/src/page/login'  //引入根目录下的Hello.vue组件
 import Detail from '/src/page/detail'  //引入根目录下的Hello.vue组件
 import List from '/src/page/list'  //引入根目录下的Hello.vue组件
-import elm from '/src/page/elm'  //引入根目录下的Hello.vue组件
+
+const originaPush = Router.prototype.push;
+Router.prototype.push = function push(location) {
+  return originaPush.call(this, location).catch(err => err)
+}
  
 Vue.use(Router)  //Vue全局使用Router
  
@@ -15,7 +19,7 @@ export default new Router({
       name: 'Index',     //路由名称，
       component: Index,   //对应的组件模板
       children: [
-        { name: 'list', path: '/list', component: List },
+        { name: 'list', path: '/', component: List },
         { name: 'detail', path: '/Detail', component: Detail },
       ]
     },

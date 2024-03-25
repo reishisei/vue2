@@ -1,5 +1,6 @@
 <template>
     <div class="page-right">
+        <recommend id="recommend"></recommend>
         <div v-for="(item, index) in list" :key="index" class="list">
             <div class="list-title">
                 <div class="title-icon">
@@ -23,11 +24,13 @@
 </template>
   
 <script>
+import recommend from '@/components/recommend.vue'
 export default {
     props: {
     },
     data() {
         return {
+            often: [],
             list: {
                 a: {
                     name: '外国籍可',
@@ -56,6 +59,9 @@ export default {
             }
         }
     },
+    components: {
+        recommend
+    },
     mounted() {
         const data = require('../utils/data.json');
         this.dataChenge(data);
@@ -71,16 +77,21 @@ export default {
                     if(i === '留学生可') that.list.d.data.push(item);
                     if(i === '租赁公司') that.list.e.data.push(item);
                     if(i === '其他') that.list.f.data.push(item);
+                    if(i === 'often') that.often.push(item);
+
                 });
             });
-            console.log('getData', that.list)
+            console.log('that.often', that.often)
+            localStorage.setItem("oftenData", JSON.stringify(that.often))
         },
         toLink(data) {
             console.log('data', data)
-            this.$router.push({
-                name: 'detail',
-                params: data,
-            })
+            // localStorage.removeItem('detailData');
+            localStorage.setItem("detailData", JSON.stringify(data))
+            let toDetail = this.$router.resolve({
+                name: 'detail'
+            });
+            window.open(toDetail.href, '_blank');
         }
     }
 }

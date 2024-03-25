@@ -17,34 +17,43 @@
                     </div>
                 </div>
             </div>
-            <div class="detail-bottom"></div>
+            <div class="detail-bottom">
+                <recommend></recommend>
+            </div>
         </div>
     </div>
 </template>
   
 <script>
 import Clipboard from "clipboard"
+import recommend from '@/components/recommend.vue'
 export default {
     props: {
     },
     data() {
         return {
             detailData: {
-                imgUrl: "https://msp.c.yimg.jp/images/v2/FUTi93tXq405grZVGgDqG55TuUok74aGR5j448WXX6SqfxRNNWdkvZC-TeajfaosZ2OaChzPuUz-wfl0hs1NHfcnTgz-_sx5QhvSZ3Y0Z3S8_4zRd0M3nxRQ80BldPUd_7RxJ47D5zod15sB6aWZJZLbxvc8YMmtrVfzcUrB2wWoVHHfZSaeWgyhcDCRO8kHrtvQGdN0sJvM-MC0TacXuA2Ycm_Zx_TOBZLXvYlpOYV-rdmS-JDkd7d-jpzP83NdPF8bRWDZ1UMWSxxdnQHOkf6p5sY0IKi8eEUyNeG6cgTMzGvqAqbEugzE43uuIEUk5LYB1rrzi_b5xzBvSBIqZRTQQbzQ0p4caWkyaSELo94=/sp-e1bb3a770694fb971849dde8732115a3-eef4d125d3127caef9d4393a6885598b.png",
-                name: "グローバルベイス株式会社",
-                introduction: "グローバルベイス株式会社GlobalBase",
-                mack: "外国籍可,租赁公司",
-                link: "https://agency.globalbase.jp/login.php"
+                imgUrl: "",
+                name: "",
+                introduction: "",
+                mack: "",
+                link: ""
             }
         }
     },
+    components: {
+        recommend
+    },
     mounted() {
-        this.detailData = this.$route.params;
-        console.log('detailData', this.$route.params)
+        const detailData = JSON.parse(localStorage.getItem('detailData'));
+        
+        if(detailData) {
+            this.detailData = detailData;
+        }
     },
     methods: {
         copyTool() {
-            this.$copyText('要复制的内容').then(function (e) {
+            this.$copyText('123456').then(function (e) {
                 console.log('【复制成功】', e)
             }, function (e) {
                 console.log('【复制失败】', e)
@@ -170,5 +179,11 @@ export default {
 
 .copy-text:hover {
     background-color: #000;
-}</style>
+}
+
+.detail-bottom {
+    margin-top: 50px;
+}
+
+</style>
   

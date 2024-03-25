@@ -1,16 +1,33 @@
 <template>
     <div class="mian">
         <div class="left">
-            <leftMenu></leftMenu>
-        </div>
-        <div class="right">
-            <router-view></router-view>
+            <div class="logo">
+                <!-- <img src="./../assets/images/logo.png"> -->
+            </div>
+            <div class="list">
+                <div class="list-user">
+                    <div v-for="item in listData" :key="item.text" class="list-con">
+                        <!-- <i class="el-icon-edit"></i> -->
+                        <div class="list-text">{{ item.text }}</div>
+                        <div v-if="item.child" class="arrow-right">
+                            <i :class="item.childIcon"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="list-user">
+                    <div class="list-con">
+                        <div class="list-text">账户</div>
+                        <div class="arrow-right">
+                            <i class="el-icon-star-on"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </template>
   
 <script>
-import leftMenu from '@/components/left.vue'
 export default {
     props: {
     },
@@ -20,7 +37,7 @@ export default {
                 {
                     icon: 'el-icon-star-on',
                     text: '常用推荐',
-                    path: '',
+                    path: '#recommend',
                     child: false,
                 },
                 {
@@ -58,17 +75,7 @@ export default {
             ]
         }
     },
-    components: {
-        leftMenu
-    },
     mounted() {
-        const username = localStorage.getItem('username');
-        if(!username) {
-            this.$router.push(
-                { path: '/login'}
-            )
-        }
-        console.log('username', username)
     },
     methods: {
     }

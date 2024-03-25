@@ -4,4 +4,31 @@
 }, {
 	"name": "admin",
     "pass": "abcd1234"
+}, {
+	"name": "tokyo001",
+    "pass": "tokyo001"
+}, {
+	"name": "tokyo002",
+    "pass": "tokyo002"
+}, {
+	"name": "tokyo003",
+    "pass": "tokyo003"
+}, {
+	"name": "tokyo004",
+    "pass": "tokyo004"
+}, {
+	"name": "tokyo005",
+    "pass": "tokyo005"
+}, {
+	"name": "tokyo006",
+    "pass": "tokyo006"
+}, {
+	"name": "tokyo007",
+    "pass": "tokyo007"
+}, {
+	"name": "tokyo008",
+    "pass": "tokyo008"
+}, {
+	"name": "tokyo009",
+    "pass": "tokyo009"
 }]

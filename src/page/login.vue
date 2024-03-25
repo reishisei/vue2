@@ -50,7 +50,7 @@ export default {
                         if(that.form.name === item.name || that.form.pass === item.pass) {
                             localStorage.setItem('username', that.form.name);
                             this.$router.push(
-                                { path: '/list'}
+                                { path: '/'}
                             )
                         }
                     });
